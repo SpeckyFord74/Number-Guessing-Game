@@ -8,25 +8,17 @@ namespace NumberGuessingGame
         {
             Random random = new();  //Creates a new Random called random//
 
-            bool playAgain = true;  //Creates a bool variable called playAgain and makes it equal true//
-            int Min = 1;  //Creates a integer variable called Min and makes it equal 1//
-            int Max = 100;  //Creates a integer variable called Max and makes it equal 100//
-            int Guess;  //Creates a integer variable called Guess and doesn't set it a value//
-            int Number;  //Creates a integer variable called Number and doesn't set it a value//
-            int Guesses;  //Creates a integer variable called Guesses and doesn't set it a value//
-            String Response;  //Creates a string variable called Response but doesn't set it a value//
-
-            while (playAgain)  //Only executes indented code if playAgain is true//
+            while (true)  //Only executes indented code if playAgain is true//
             {
-                Guess = 0;  //Sets the integer 0 to the variable Guess//
-                Guesses = 0;  //Sets the integer 0 to the variable Guesses//
-                Response = "";  //Sets an empty string to the variable Response//
+                int Guess = 0;  //Sets the integer 0 to the variable Guess//
+                int Guesses = 0;  //Sets the integer 0 to the variable Guesses//
+                String Response = "";  //Sets an empty string to the variable Response//
 
-                Number = random.Next(Min, Max + 1);  //Creates a new random whole number between 1 and 100//
+                int Number = random.Next(1, 101);  //Creates a new random whole number between 1 and 100//
 
                 while (Guess != Number)  //Only executes the indented code if Guess is not equal to number//
                 {
-                    Console.Write($"Guess a number between {Min} and {Max}: ");
+                    Console.Write($"Guess a number between 1 and 100: ");
                     Guess = Convert.ToInt32(Console.ReadLine());  //Converts the inputted string in the line above to a 32 bit integer//
 
                     if (Guess > Number)  //Only executes the indented code if Guess is larger than Number//
@@ -49,12 +41,12 @@ namespace NumberGuessingGame
 
                 if (Response == "Y")  //Only executes the indented code if Response is Y//
                 {
-                    playAgain = true;  //Keeps the boolean variable as True//
+                    continue;
                 }
 
                 else if (Response == "N")  //Only executes the indented code if Response is N//
                 {
-                    playAgain = false;  //Keeps the boolean variable as False//
+                    break;
                 }
             }
         }
